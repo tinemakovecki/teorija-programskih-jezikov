@@ -1,0 +1,18 @@
+LET REC split l =
+    LET REC join l1 =
+        FUN l2 ->
+            MATCH l1 WITH
+            | [] -> l2
+            | x :: xs -> x :: (join xs l2)
+    IN
+    LET REC split1 lpairs =
+        FUN fsts -> 
+        FUN snds ->
+            MATCH lpairs WITH
+            | [] -> {fsts, snds}
+            | head :: tail ->
+                split1 tail (join fsts (FST head :: [])) (join snds (SND head :: []))
+    IN
+    split1 l [] []
+IN
+split ({1, 2} :: {3, 4} :: {5, 6} :: [])

@@ -1,0 +1,9 @@
+LET REC map f =
+    LET REC map2 l =
+      MATCH l WITH
+      | [] -> []
+      | x :: xs ->  (f x) :: (map2 xs)
+    IN
+    map2
+IN
+map (FUN x -> IF x = 9 THEN 4 ELSE IF x = 6 THEN 2 ELSE 0) (9 :: 6 :: 0 :: [])
