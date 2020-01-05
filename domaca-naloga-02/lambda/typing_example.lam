@@ -1,0 +1,4 @@
+LET REC f g =
+    FUN p -> (g (FST p)) (SND p)
+IN
+f

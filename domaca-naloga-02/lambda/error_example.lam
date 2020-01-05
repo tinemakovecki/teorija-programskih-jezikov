@@ -1,0 +1,8 @@
+LET REC g h =
+  MATCH h WITH
+  | [] -> FALSE
+  | x :: xs -> x
+IN
+LET REC f p = (FST p) > (SND p)
+IN
+g f 
